@@ -36,6 +36,15 @@
   border: 2px solid slategray;
 }
 
+.signup button {
+    margin: 25px;
+    width: 153px;
+    padding: 10px;
+    background-color: limegreen;
+    cursor: pointer;
+    border: 1px solid slategrey;
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
