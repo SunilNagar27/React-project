@@ -1,12 +1,34 @@
 import React,{useState} from "react";
+import {useNavigate} from "react-router-dom";
+
 
 const Signup = () => {
     const [name,setName] = useState ("");
     const [email,setEmail] = useState ("");
     const [pass,setPass] = useState ("");
+    const navigate = useNavigate();
 
-    const collectData = () => {
+    const collectData = async () => {
         console.warn(name,email,pass);
+        /* API integrate krne ka tarika fetchI() function is used to get the api 
+            This function two things as a parameter 
+            1) URL of the api which we created in Node 
+            2) method{matlab konsa method use kiya h api k liye} , body{api kya data store krwa rha h ya retirve krwa rha h databse se }, headers { jiske anadar content type by default application/json dete h 
+            if not mentioned by the backend devloper } */ 
+
+        let result = await fetch('http://localhost:5000/register', { 
+            method:'post',
+            body:JSON.stringify({name,email,pass}),    // API ko direct objects smj nhi aata isliye object ko stringify krke bhejte h 
+            headers:{
+                'Content-type': 'application/JSON'
+            },  
+        })
+        result = await result.json();
+        console.warn(result);
+        if(result)
+        {
+            navigate('/');
+        }
     };
 
     return(
