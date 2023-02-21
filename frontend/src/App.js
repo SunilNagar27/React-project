@@ -2,6 +2,7 @@ import './App.css';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
 import Signup from './components/Signup';
+import PrivateComponent from './components/privateComponenet';
 
 /* 
 The header we created which is Nav.js which is been used in app.js must be inside the browser routed to run perfectly 
@@ -24,11 +25,15 @@ function App() {
       <BrowserRouter>
       <Nav />
         <Routes>
+
+          <Route element = {<PrivateComponent />}>
           <Route path="/" element = {<h1>List Product componnent </h1>} />
           <Route path="/add" element = {<h1>Add Product componnent </h1>} />
           <Route path="/update" element = {<h1>Update Product componnent </h1>} />
           <Route path="/logout" element = {<h1>Logout componnent </h1>} />
           <Route path="/profile" element = {<h1>Profile componnent </h1>} />
+          </Route>
+
           <Route path="/signup" element = {<Signup />} />
         </Routes>
       </BrowserRouter>

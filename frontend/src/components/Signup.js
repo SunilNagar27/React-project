@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import {useNavigate} from "react-router-dom";
 
 
@@ -7,6 +7,14 @@ const Signup = () => {
     const [email,setEmail] = useState ("");
     const [pass,setPass] = useState ("");
     const navigate = useNavigate();
+
+    useEffect( ()=>{
+        const auth= localStorage.getItem('users');
+        if(auth)
+        {
+            navigate("/");
+        }
+    })
 
     const collectData = async () => {
         console.warn(name,email,pass);
@@ -25,10 +33,8 @@ const Signup = () => {
         })
         result = await result.json();
         console.warn(result);
-        if(result)
-        {
-            navigate('/');
-        }
+        navigate('/');
+        localStorage.setItem("users",JSON.stringify(result));  // saving data to localstorage so it doesn't get lost after refresh or browser close data will be save their for a long time 
     };
 
     return(

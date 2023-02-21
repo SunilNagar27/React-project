@@ -7,15 +7,16 @@ basically the Link are the routes where we want to go */
 
 import { Link } from "react-router-dom";
 const Nav=()=>{
+   const auth= localStorage.getItem('users');
    return(
     <div >
         <ul className="nav-ul">
             <li><Link to="/" >List Products</Link></li>
             <li><Link to="/add" >Add Products</Link></li>
             <li><Link to="/update" >Update Products</Link></li>
-            <li><Link to="/logout" >Logout</Link></li>
+            <li></li>
             <li><Link to="/profile" >Profile</Link></li>
-            <li><Link to="/signup" >SignUp</Link></li>
+            <li>{ auth?<Link to="/logout" >Logout</Link> :<Link to="/signup" >SignUp</Link>}</li>
         </ul>
     </div>
    )
