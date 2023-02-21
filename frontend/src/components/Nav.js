@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
+
 /* 
 this import Function is used after instaalling react-router-dom package 
 
 which basically provide use to create Link to other pages similar to <a> anchor tag but the page doesn't load 
 basically the Link are the routes where we want to go */
 
-import { Link } from "react-router-dom";
+import { Link ,useNavigate} from "react-router-dom";
 const Nav=()=>{
    const auth= localStorage.getItem('users');
+   const navigate = useNavigate();
+   const logout = () =>{
+    return localStorage.clear('users')
+    navigate('/signup');
+   }
    return(
     <div >
         <ul className="nav-ul">
@@ -16,7 +22,7 @@ const Nav=()=>{
             <li><Link to="/update" >Update Products</Link></li>
             <li></li>
             <li><Link to="/profile" >Profile</Link></li>
-            <li>{ auth?<Link to="/logout" >Logout</Link> :<Link to="/signup" >SignUp</Link>}</li>
+            <li>{ auth?<Link onClick={logout} to="/signup" >Logout</Link> :<Link to="/signup" >SignUp</Link>}</li>
         </ul>
     </div>
    )

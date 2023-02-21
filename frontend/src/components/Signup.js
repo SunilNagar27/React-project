@@ -19,9 +19,9 @@ const Signup = () => {
     const collectData = async () => {
         console.warn(name,email,pass);
         /* API integrate krne ka tarika fetchI() function is used to get the api 
-            This function two things as a parameter 
-            1) URL of the api which we created in Node 
-            2) method{matlab konsa method use kiya h api k liye} , body{api kya data store krwa rha h ya retirve krwa rha h databse se }, headers { jiske anadar content type by default application/json dete h 
+            This function contains two parameters 
+            1) URL of the api which we created in Node JS
+            2) method{matlab konsa method use kiya h api k liye} , body{api kya data store krwa rha h ya retirve krwa rha h databse se }, headers { jiske anadar Content-type by default application/json dete h 
             if not mentioned by the backend devloper } */ 
 
         let result = await fetch('http://localhost:5000/register', { 
