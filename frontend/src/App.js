@@ -3,6 +3,7 @@ import Nav from './components/Nav';
 import Footer from './components/Footer';
 import Signup from './components/Signup';
 import PrivateComponent from './components/privateComponenet';
+import Login from './components/Login';
 
 /* 
 The header we created which is Nav.js which is been used in app.js must be inside the browser routed to run perfectly 
@@ -17,24 +18,25 @@ and,
 Also Contain elememt which will contain components which will be displayed on that particular route
 
 */
-import { BrowserRouter ,Routes,Route} from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <Nav />
+        <Nav />
         <Routes>
 
-          <Route element = {<PrivateComponent />}>
-          <Route path="/" element = {<h1>List Product componnent </h1>} />
-          <Route path="/add" element = {<h1>Add Product componnent </h1>} />
-          <Route path="/update" element = {<h1>Update Product componnent </h1>} />
-          <Route path="/logout" element = {<h1>Logout componnent </h1>} />
-          <Route path="/profile" element = {<h1>Profile componnent </h1>} />
+          <Route element={<PrivateComponent />}>
+            <Route path="/" element={<h1>List Product componnent </h1>} />
+            <Route path="/add" element={<h1>Add Product componnent </h1>} />
+            <Route path="/update" element={<h1>Update Product componnent </h1>} />
+            <Route path="/logout" element={<h1>Logout componnent </h1>} />
+            <Route path="/profile" element={<h1>Profile componnent </h1>} />
           </Route>
 
-          <Route path="/signup" element = {<Signup />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path='/login' element={<Login />} />
         </Routes>
       </BrowserRouter>
       <Footer />

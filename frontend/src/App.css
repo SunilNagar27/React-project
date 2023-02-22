@@ -3,7 +3,7 @@
   padding: 10px;
 }
 
-.nav-ul a{
+.nav-ul a {
   padding: 5px;
   text-decoration: none;
   color: BEIGE;
@@ -15,7 +15,7 @@
   background-color: slategrey;
 }
 
-.footer h3{
+.footer h3 {
   position: absolute;
   bottom: 0;
   text-align: center;
@@ -27,7 +27,12 @@
 .signup {
   margin-left: 30%;
 }
- 
+
+.login {
+  margin-left: 30%;
+  margin-top: 100PX;
+}
+
 .inputBox {
   display: block;
   margin: 16px;
@@ -36,13 +41,13 @@
   border: 2px solid slategray;
 }
 
-.signup button {
-    margin: 25px;
-    width: 153px;
-    padding: 10px;
-    background-color: limegreen;
-    cursor: pointer;
-    border: 1px solid slategrey;
+.BUTTON {
+  margin: 25px;
+  width: 153px;
+  padding: 10px;
+  background-color: limegreen;
+  cursor: pointer;
+  border: 1px solid slategrey;
 }
 
 
@@ -71,6 +76,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
