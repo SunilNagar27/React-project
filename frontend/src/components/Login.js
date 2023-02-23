@@ -14,7 +14,7 @@ const Login = () => {
   useEffect(() => {
     const auth = localStorage.getItem('users');
     if (auth) {
-      navigate("/");
+      navigate("/home");
     }
   }, [])
   
@@ -31,7 +31,7 @@ const Login = () => {
     console.warn(result);
     if (result.email) {
       localStorage.setItem("users", JSON.stringify(result));
-      navigate("/")
+      navigate("/home")
     }
     else {
       alert("Please Enter correct details")

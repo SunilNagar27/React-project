@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import Logo from './assets/logo.svg';
 
 /* 
 this import Function is used after instaalling react-router-dom package 
@@ -12,26 +13,29 @@ const Nav = () => {
     const navigate = useNavigate();
     const logout = () => {
         return localStorage.clear('users')
-        navigate('/signup');
+        navigate('/home');
     }
     return (
         <div >
-            <ul className="nav-ul">
-                <li><Link to="/" >List Products</Link></li>
-                <li><Link to="/add" >Add Products</Link></li>
-                <li><Link to="/update" >Update Products</Link></li>
-                <li></li>
-                <li><Link to="/profile" >Profile</Link></li>
-                {
-                    auth ?
+            <Link to="/home" ><img className="Logo" src={Logo} alt="Logo" /></Link>
+            {
+                auth ?
+                    <ul className="nav-ul nav-right">
+                        <li><Link to="/home" >Home</Link></li>
+                        <li><Link to="/" >List Products</Link></li>
+                        <li><Link to="/add" >Add Products</Link></li>
+                        <li><Link to="/update" >Update Products</Link></li>
+                        <li><Link to="/profile" >Profile</Link></li>
                         <li><Link onClick={logout} to="/signup" >Logout</Link></li>
-                        :
-                        <>
-                            <li><Link to="/signup" >SignUp</Link></li>
-                            <li><Link to="/login" >Login</Link></li>
-                        </>
-                }
-            </ul>
+                    </ul>
+                    :
+                    <ul className="nav-ul nav-right" >
+                        <li><Link to="/home" >Home</Link></li>
+                        <li><Link to="/signup" >SignUp</Link></li>
+                        <li><Link to="/login" >Login</Link></li>
+                    </ul>
+
+            }
         </div>
     )
 };

@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import Signup from './components/Signup';
 import PrivateComponent from './components/privateComponenet';
 import Login from './components/Login';
+import Home from './components/home';
 
 /* 
 The header we created which is Nav.js which is been used in app.js must be inside the browser routed to run perfectly 
@@ -34,7 +35,7 @@ function App() {
             <Route path="/logout" element={<h1>Logout componnent </h1>} />
             <Route path="/profile" element={<h1>Profile componnent </h1>} />
           </Route>
-
+          <Route path="/home" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
           <Route path='/login' element={<Login />} />
         </Routes>
