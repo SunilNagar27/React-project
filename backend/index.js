@@ -1,6 +1,7 @@
 const express = require('express');
 require("./DB/config");
 const user = require("./DB/user");
+const Product = require("./DB/product")
 const app = express();
 const cors = require('cors')
 
@@ -14,6 +15,13 @@ app.post("/register", async (req,resp) =>{
    delete result.pass;
    resp.send(result);
 });
+
+app.post("/add-product", async (req,resp)=>{
+   let data = new Product(req.body);
+   let result = await data.save();
+   resp.send(result);
+});
+
 
    app.post("/login", async (req,resp)=>{
       if(req.body.pass && req.body.email)
@@ -33,5 +41,7 @@ app.post("/register", async (req,resp) =>{
          resp.send({result:"Not found"});
       }
    })
+
+
 
 app.listen(5000); 
