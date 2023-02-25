@@ -20,6 +20,7 @@ Also Contain elememt which will contain components which will be displayed on th
 
 */
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import AddProduct from './components/addProduct';
 
 function App() {
   return (
@@ -30,7 +31,7 @@ function App() {
 
           <Route element={<PrivateComponent />}>
             <Route path="/" element={<h1>List Product componnent </h1>} />
-            <Route path="/add" element={<h1>Add Product componnent </h1>} />
+            <Route path="/add" element={<AddProduct />} />
             <Route path="/update" element={<h1>Update Product componnent </h1>} />
             <Route path="/logout" element={<h1>Logout componnent </h1>} />
             <Route path="/profile" element={<h1>Profile componnent </h1>} />
