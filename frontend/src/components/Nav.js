@@ -22,7 +22,7 @@ const Nav = () => {
                 auth ?
                     <ul className="nav-ul nav-right">
                         <li><Link to="/home" >Home</Link></li>
-                        <li><Link to="/" >List Products</Link></li>
+                        <li><Link to="/" >Products</Link></li>
                         <li><Link to="/add" >Add Products</Link></li>
                         <li><Link to="/update" >Update Products</Link></li>
                         <li><Link to="/profile" >Profile</Link></li>
