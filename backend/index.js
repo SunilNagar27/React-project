@@ -22,6 +22,15 @@ app.post("/add-product", async (req,resp)=>{
    resp.send(result);
 });
 
+app.get("/Products", async (req,resp) =>{
+   let products = await Product.find(); 
+   if(products.length>0)
+   {
+      resp.send(products);
+   }
+   resp.send({result:"No Products Found..."})
+});
+
 
    app.post("/login", async (req,resp)=>{
       if(req.body.pass && req.body.email)
@@ -41,6 +50,8 @@ app.post("/add-product", async (req,resp)=>{
          resp.send({result:"Not found"});
       }
    })
+
+
 
 
 
