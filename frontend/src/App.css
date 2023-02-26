@@ -81,6 +81,14 @@
   border: 1px solid slategrey;
 }
 
+.invalid-input {
+    color: indianred;
+    margin-left: 15px;
+    margin-top: -20px;
+    display: block;
+}
+
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
