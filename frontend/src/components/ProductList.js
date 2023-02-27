@@ -26,7 +26,7 @@ const Product = () => {
       </ul>
      {
       products.map((item,index) =>
-      <ul>
+      <ul key={item}>
         <li>{index+1}</li>
         <li>{item.name}</li>
         <li>${item.price}</li>
