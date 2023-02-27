@@ -105,6 +105,11 @@
   margin: 0px;
 }
 
+.product-list a {
+  color: greenyellow;
+    text-decoration: none;
+}
+
 
 
 @media (prefers-reduced-motion: no-preference) {
