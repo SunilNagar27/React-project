@@ -1,11 +1,20 @@
-import React,{ useState } from 'react';
+import React,{ useState,useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const AddProduct = () => {
     const [name, setName] = useState("");
     const [price, setPrice] = useState("");
     const [category, setCategory] = useState("");
     const [company, setCompany] = useState("");
-    const [error,setError] = useState(false)
+    const [error,setError] = useState(false);
+    
+    const clearState = () =>{
+        setName("");
+        setCategory("");
+        setCompany("");
+        setPrice("");
+    }
+ 
 
     const productHandler = async () => {
         const userId = JSON.parse(localStorage.getItem('users'))._id;
@@ -25,6 +34,7 @@ const AddProduct = () => {
         })
         data = await data.json();
         console.warn(data);
+        clearState();
     };
 
     return (
