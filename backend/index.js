@@ -30,6 +30,10 @@ app.get("/Products", async (req, resp) => {
    return resp.send({ result: "No Products Found..." })
 });
 
+app.get("/product/:id", async (req,resp) =>{
+   let data = await Product.findOne({_id:req.params.id})
+   resp.send(data)
+})
 
 app.post("/login", async (req, resp) => {
    if (req.body.pass && req.body.email) {
