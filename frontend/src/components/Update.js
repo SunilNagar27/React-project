@@ -7,6 +7,7 @@ const UpdateProduct = () => {
     const [category, setCategory] = useState("");
     const [company, setCompany] = useState("");
     const params = useParams();
+    const navigate = useNavigate();
     
     useEffect(() =>{
         getProductDetails();
@@ -22,6 +23,19 @@ const UpdateProduct = () => {
         setCompany(result.company);
     }
 
+    const updateItem = async ()=>{
+        let result = await fetch(`http://localhost:5000/product/${params.id}`,{
+            method:'put',
+            body: JSON.stringify({name,price,category,company}),
+            headers:
+            {
+                'Content-Type': 'application/json'
+            }
+        })
+        result = await result.json();
+        navigate('/');
+    }
+
     return (
         <div className='login'>
             <h2>Update Product</h2>
@@ -33,7 +47,7 @@ const UpdateProduct = () => {
             
             <input className='inputBox' value={company} onChange={(e) => {setCompany(e.target.value)}} type='text' placeholder='Enter Company' />
 
-            <button  className="BUTTON" type='button' > Update Product </button>
+            <button onClick={updateItem}  className="BUTTON" type='button' > Update Product </button>
         </div>
     )
 };
