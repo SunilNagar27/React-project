@@ -110,6 +110,22 @@
     text-decoration: none;
 }
 
+.search-input {
+    width: 450px;
+    margin-bottom: 25px;
+    height: 29px;
+    border: 2px solid black;
+    border-radius: 25px;
+    padding-left: 50px;
+}
+
+.Delete-button {
+  background-color: indianred;
+  color: white;
+  border-radius: 25px;
+
+}
+
 
 
 @media (prefers-reduced-motion: no-preference) {
