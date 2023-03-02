@@ -55,6 +55,14 @@ app.delete("/delete/:id", async(req,resp) =>{
    resp.send(result);
 })
 
+app.put("/product/:id", async (req,resp) =>{
+   let result = await Product.updateOne(
+      {_id:req.params.id},
+      {$set: req.body}
+   )
+   resp.send(result);
+})
+
 
 
 
