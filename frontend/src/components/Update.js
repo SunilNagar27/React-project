@@ -1,17 +1,26 @@
 import React,{ useState,useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,useParams } from 'react-router-dom';
 
 const UpdateProduct = () => {
     const [name, setName] = useState("");
     const [price, setPrice] = useState("");
     const [category, setCategory] = useState("");
     const [company, setCompany] = useState("");
+    const params = useParams();
     
- 
+    useEffect(() =>{
+        getProductDetails();
+    },[]);
 
-    const productHandler = async () => {
-        console.warn(name,price,category,company);
-    };
+    const  getProductDetails = async () =>
+    {
+        let result = await fetch(`http://localhost:5000/product/${params.id}`);
+        result = await result.json();
+        setName(result.name);
+        setPrice(result.price);
+        setCategory(result.category);
+        setCompany(result.company);
+    }
 
     return (
         <div className='login'>
@@ -24,7 +33,7 @@ const UpdateProduct = () => {
             
             <input className='inputBox' value={company} onChange={(e) => {setCompany(e.target.value)}} type='text' placeholder='Enter Company' />
 
-            <button onClick={productHandler} className="BUTTON" type='button' > Update Product </button>
+            <button  className="BUTTON" type='button' > Update Product </button>
         </div>
     )
 };
